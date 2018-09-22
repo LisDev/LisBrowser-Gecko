@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="homepage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://google.de/</Value>
+    </Setting>
+    <Setting Name="refresh" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="color_fg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">black</Value>
+    </Setting>
+    <Setting Name="color_bg" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="search" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://google.de/search?q=</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
