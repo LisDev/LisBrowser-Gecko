@@ -337,6 +337,7 @@ Partial Class lb_settings
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "lb_settings"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "LisBrowser Gecko - Einstellungen"
         Me.TopMost = True
         CType(Me.black, System.ComponentModel.ISupportInitialize).EndInit()

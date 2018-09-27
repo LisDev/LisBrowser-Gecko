@@ -185,8 +185,6 @@ Public Class main
             My.Settings.history.Add(CType(tabcontrol.SelectedTab.Controls.Item(0), GeckoWebBrowser).Url.ToString)
             My.Settings.history2.Add(CType(tabcontrol.SelectedTab.Controls.Item(0), GeckoWebBrowser).DocumentTitle.ToString)
             My.Settings.Save()
-            lb_settings.Verlauf.Refresh()
-            lb_settings.Verlauf_2.Refresh()
         Catch ex As Exception
             MsgBox("Fehler bei der Aktualisierung des Verlaufes." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
