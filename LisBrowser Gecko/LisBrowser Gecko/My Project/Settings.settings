@@ -5,7 +5,7 @@
     <Setting Name="homepage" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://google.de/</Value>
     </Setting>
-    <Setting Name="refresh" Type="System.Boolean" Scope="User">
+    <Setting Name="navigate" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="color_fg" Type="System.String" Scope="User">
@@ -16,6 +16,17 @@
     </Setting>
     <Setting Name="search" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://google.de/search?q=</Value>
+    </Setting>
+    <Setting Name="history" Roaming="true" GenerateDefaultValueInCode="false" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+    </Setting>
+    <Setting Name="history2" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+    </Setting>
+    <Setting Name="timer" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

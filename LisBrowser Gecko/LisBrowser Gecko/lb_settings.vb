@@ -1,9 +1,12 @@
-﻿Imports Gecko
+﻿Imports System.ComponentModel
+Imports Gecko
 Imports Gecko.Events
 Public Class lb_settings
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Try
             CType(main.tabcontrol.SelectedTab.Controls.Item(0), GeckoWebBrowser).Navigate("https://www.freepik.com")
+            My.Settings.navigate = True
+            main.reload.Image = My.Resources.cancel
             Me.Close()
         Catch ex As Exception
             Dim result_ As DialogResult
@@ -18,6 +21,8 @@ Public Class lb_settings
     Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         Try
             CType(main.tabcontrol.SelectedTab.Controls.Item(0), GeckoWebBrowser).Navigate("https://www.flaticon.com/authors/gregor-cresnar")
+            My.Settings.navigate = True
+            main.reload.Image = My.Resources.cancel
             Me.Close()
         Catch ex As Exception
             Dim result_ As DialogResult
@@ -32,6 +37,8 @@ Public Class lb_settings
     Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
         Try
             CType(main.tabcontrol.SelectedTab.Controls.Item(0), GeckoWebBrowser).Navigate("https://www.flaticon.com/authors/smashicons")
+            My.Settings.navigate = True
+            main.reload.Image = My.Resources.cancel
         Catch ex As Exception
             Dim result_ As DialogResult
             result_ = MsgBox("Fehler beim Öffnen im LisBrowser. Der Link wird nun in einem anderen Browser geöffnet.", MsgBoxStyle.Critical, MsgBoxStyle.OkCancel)
@@ -45,6 +52,8 @@ Public Class lb_settings
     Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel4.LinkClicked
         Try
             CType(main.tabcontrol.SelectedTab.Controls.Item(0), GeckoWebBrowser).Navigate("https://www.flaticon.com/")
+            My.Settings.navigate = True
+            main.reload.Image = My.Resources.cancel
         Catch ex As Exception
             Dim result_ As DialogResult
             result_ = MsgBox("Fehler beim Öffnen im LisBrowser. Der Link wird nun in einem anderen Browser geöffnet.", MsgBoxStyle.Critical, MsgBoxStyle.OkCancel)
@@ -56,6 +65,8 @@ Public Class lb_settings
     End Sub
 
     Private Sub lb_settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Verlauf.DataSource = My.Settings.history
+        Verlauf_2.DataSource = My.Settings.history2
         version.Text = "Version: " & My.Application.Info.Version.ToString
         copyright.Text = My.Application.Info.Copyright.ToString & ", " & My.Application.Info.CompanyName.ToString
         If My.Settings.color_bg = False Then
@@ -68,12 +79,12 @@ Public Class lb_settings
         Try
             homepage_tb.Text = My.Settings.homepage
         Catch ex As Exception
-            MsgBox("Fehler beim Bestimmen der Homepage.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Bestimmen der Homepage." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
         Try
             search_tb.Text = My.Settings.search
         Catch ex As Exception
-            MsgBox("Fehler beim Bestimmen der Suchengine.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Bestimmen der Suchengine." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -82,7 +93,7 @@ Public Class lb_settings
             My.Settings.homepage = homepage_tb.Text
             My.Settings.Save()
         Catch ex As Exception
-            MsgBox("Fehler beim Ändern der Homepage.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Ändern der Homepage." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -97,7 +108,7 @@ Public Class lb_settings
             main.remove.Image = My.Resources.remove
             main.settings.Image = My.Resources.settings
         Catch ex As Exception
-            MsgBox("Fehler beim Umstellen des Farbschemas.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Umstellen des Farbschemas." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -112,7 +123,7 @@ Public Class lb_settings
             main.remove.Image = My.Resources.remove_blue
             main.settings.Image = My.Resources.settings_blue
         Catch ex As Exception
-            MsgBox("Fehler beim Umstellen des Farbschemas.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Umstellen des Farbschemas." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -127,7 +138,7 @@ Public Class lb_settings
             main.remove.Image = My.Resources.remove_green
             main.settings.Image = My.Resources.settings_green
         Catch ex As Exception
-            MsgBox("Fehler beim Umstellen des Farbschemas.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Umstellen des Farbschemas." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -142,7 +153,7 @@ Public Class lb_settings
             main.remove.Image = My.Resources.remove_red
             main.settings.Image = My.Resources.settings_red
         Catch ex As Exception
-            MsgBox("Fehler beim Umstellen des Farbschemas.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Umstellen des Farbschemas." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -157,7 +168,7 @@ Public Class lb_settings
             main.remove.Image = My.Resources.remove_yellow
             main.settings.Image = My.Resources.settings_yellow
         Catch ex As Exception
-            MsgBox("Fehler beim Umstellen des Farbschemas.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Umstellen des Farbschemas." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -168,7 +179,7 @@ Public Class lb_settings
             Me.BackColor = SystemColors.Control
             main.BackColor = SystemColors.Control
         Catch ex As Exception
-            MsgBox("Fehler beim Umstellen des Farbschemas.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Umstellen des Farbschemas." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -179,7 +190,7 @@ Public Class lb_settings
             Me.BackColor = SystemColors.ControlDarkDark
             main.BackColor = SystemColors.ControlDarkDark
         Catch ex As Exception
-            MsgBox("Fehler beim Umstellen des Farbschemas.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Umstellen des Farbschemas." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -188,7 +199,17 @@ Public Class lb_settings
             My.Settings.search = search_tb.Text
             My.Settings.Save()
         Catch ex As Exception
-            MsgBox("Fehler beim Ändern der Homepage.", MsgBoxStyle.Critical)
+            MsgBox("Fehler beim Ändern der Homepage." & vbCrLf & vbCrLf & ex.ToString, MsgBoxStyle.Critical)
         End Try
+    End Sub
+
+    Private Sub clear_Click(sender As Object, e As EventArgs) Handles clear.Click
+        My.Settings.history.Clear()
+        My.Settings.history2.Clear()
+        My.Settings.Save()
+    End Sub
+
+    Private Sub Verlauf_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Verlauf.SelectedIndexChanged
+        CType(main.tabcontrol.SelectedTab.Controls.Item(0), GeckoWebBrowser).Navigate(Verlauf.SelectedItem)
     End Sub
 End Class

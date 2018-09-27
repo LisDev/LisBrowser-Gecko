@@ -69,12 +69,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property refresh() As Boolean
+        Public Property navigate() As Boolean
             Get
-                Return CType(Me("refresh"),Boolean)
+                Return CType(Me("navigate"),Boolean)
             End Get
             Set
-                Me("refresh") = value
+                Me("navigate") = value
             End Set
         End Property
         
@@ -111,6 +111,43 @@ Namespace My
             End Get
             Set
                 Me("search") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+        Public Property history() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("history"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("history") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("<?xml version=""1.0"" encoding=""utf-16""?>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"<ArrayOfString xmlns:xsi=""http://www.w3."& _ 
+            "org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" />")>  _
+        Public Property history2() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("history2"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("history2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property timer() As String
+            Get
+                Return CType(Me("timer"),String)
+            End Get
+            Set
+                Me("timer") = value
             End Set
         End Property
     End Class
